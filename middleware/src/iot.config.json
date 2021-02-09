@@ -1,0 +1,136 @@
+[
+    {
+      "id": "104e4f3c-4e66-4503-8bec-ae6d6d330a62",
+      "moduleClass": "com.hal.osh.insite.consumer.InsiteSensorModule",
+      "name": "Emission Records",
+      "autoStart": true,
+      "databusKey": "EmissionInbound",
+      "mqttServerAddress": "tcp://edge-connectors_mqtt:1883",
+      "insiteBridgeName": "oleg",
+      "usePrimaryInsiteBridge": true,
+      "record": "Emission",
+      "descriptor": "",
+      "isWellBased": false,
+      "useMqttEnv": true,
+      "variables": [
+        {
+          "variableName": "Time A",
+          "signalKey": "Time A",
+          "inUnitMeasure": "MEASURE_unitless",
+          "unitClass": "CLASS_none"
+        },
+        {
+          "variableName": "Time B",
+          "signalKey": "Time B",
+          "inUnitMeasure": "MEASURE_unitless",
+          "unitClass": "CLASS_none"
+        },
+        {
+          "variableName": "Pressure A",
+          "signalKey": "Pressure A",
+          "inUnitMeasure": "MEASURE_unitless",
+          "unitClass": "CLASS_none"
+        },
+        {
+          "variableName": "Pressure B",
+          "signalKey": "Pressure B",
+          "inUnitMeasure": "MEASURE_unitless",
+          "unitClass": "CLASS_none"
+        },
+        {
+          "variableName": "Depth A",
+          "signalKey": "Depth A",
+          "inUnitMeasure": "MEASURE_unitless",
+          "unitClass": "CLASS_none"
+        },
+        {
+          "variableName": "Depth B",
+          "signalKey": "Depth B",
+          "inUnitMeasure": "MEASURE_unitless",
+          "unitClass": "CLASS_none"
+        },
+        {
+          "variableName": "Gradient A",
+          "signalKey": "Gradient A",
+          "inUnitMeasure": "MEASURE_unitless",
+          "unitClass": "CLASS_none"
+        },
+        {
+          "variableName": "Gradient B",
+          "signalKey": "Gradient B",
+          "inUnitMeasure": "MEASURE_unitless",
+          "unitClass": "CLASS_none"
+        }
+      ]
+    },
+    {
+      "id": "fa73d384-8f88-439e-a1b9-ff3ee34078b1",
+      "moduleClass": "com.hal.osh.edge.rmq.publisher.RmqSenderService",
+      "name": "Emission Publisher Service",
+      "autoStart": true,
+      "databusKey": "EmissionInbound",
+      "useRmqEnv": true,
+      "outputs": [
+        {
+          "routingKey": "emission",
+          "variables": [
+            {
+              "signalKey": "Depth A",
+              "variableName": "Depth A",
+              "outUnitMeasure": "MEASURE_unitless",
+              "outUnitClass": "CLASS_none"
+            },
+            {
+              "signalKey": "Pressure A",
+              "variableName": "Pressure A",
+              "outUnitMeasure": "MEASURE_unitless",
+              "outUnitClass": "CLASS_none"
+            },
+            {
+              "signalKey": "Pressure B",
+              "variableName": "Pressure B",
+              "outUnitMeasure": "MEASURE_unitless",
+              "outUnitClass": "CLASS_none"
+            },
+            {
+              "signalKey": "Gradient A",
+              "variableName": "Gradient A",
+              "outUnitMeasure": "MEASURE_unitless",
+              "outUnitClass": "CLASS_none"
+            },
+            {
+              "signalKey": "Gradient B",
+              "variableName": "Gradient B",
+              "outUnitMeasure": "MEASURE_unitless",
+              "outUnitClass": "CLASS_none"
+            },
+            {
+              "signalKey": "Depth B",
+              "variableName": "Depth B",
+              "outUnitMeasure": "MEASURE_unitless",
+              "outUnitClass": "CLASS_none"
+            },
+            {
+              "signalKey": "Time A",
+              "variableName": "Time A",
+              "outUnitMeasure": "MEASURE_unitless",
+              "outUnitClass": "CLASS_none"
+            },
+            {
+              "signalKey": "Time B",
+              "variableName": "Time B",
+              "outUnitMeasure": "MEASURE_unitless",
+              "outUnitClass": "CLASS_none"
+            }
+          ]
+        }
+      ],
+      "rabbitSettings": {
+        "connectionString": "amqp://localhost",
+        "exchangeName": "emission",
+        "exchangeType": "direct",
+        "exchangeDurable": true
+      }
+    }
+  ]
+  

@@ -1,0 +1,24 @@
+{
+    "serviceConfig": {
+        "port": 8080,
+        "name": "RabbitMQ"
+    },
+    "rabbitConnection": "amqp://username:emissionwidget@emission/emission",
+    "rabbitPublisherSettings": {
+        "type": "default",
+        "exchange": "emission",
+        "exchangeType": "direct",
+        "queueExclusive": true,
+        "routingKey": "emissionPublisher",
+        "durable": true,
+        "channel": "emission"
+    },
+    "rabbitSubscriberSettings": {
+        "type": "default",
+        "exchange": "emission",
+        "exchangeType": "direct",
+        "queueExclusive": true,
+        "routingKey": "emissionSubscriber",
+        "durable": true
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "corsClientHost": "http://localhost:4200",
+    "serviceConfig": {
+      "port": 9010,
+      "name": "Emission Widgets solution",
+      "appUIUrl": "http://localhost:4200/"
+    },
+    "mongoConnection": "mongodb://localhost:27017/emission?authSource=admin",
+    "rabbitConnection": "amqp://localhost",
+    "rabbitMqConfig": {
+      "connection": "amqp://localhost",
+      "settings": {
+        "type": "default",
+        "exchange": "Emission",
+        "exchangeType": "direct",
+        "queueExclusive": true,
+        "routingKey": "Emission",
+        "durable": true
+      }
+    },
+    "edgeIoTHost": "10.133.64.115",
+    "edgeIoTPort": "29200",
+    "secure": true,
+    "certFile": "C:/Users/H248715/CODE/CODE/Emission-Widgets/client_certs/TSS-EDGE-11-client.crt",
+    "caFile": "C:/Users/H248715/CODE/CODE/Emission-Widgets/client_certs/TSS-EDGE-11-CA.crt",
+    "keyFile":"C:/Users/H248715/CODE/CODE/Emission-Widgets/client_certs/TSS-EDGE-11-client.key",
+    "loggerConfig": {
+      "DATA_INPUT": {
+        "enabled": true
+      },
+      "DATA_OUTPUT": {
+        "enabled": true
+      },
+      "SYSTEM_INFO": {
+        "enabled": true
+      },
+      "WARNING": {
+        "enabled": true
+      },
+      "ERROR": {
+        "enabled": true
+      }
+    }
+   
+    
+  }
+  
